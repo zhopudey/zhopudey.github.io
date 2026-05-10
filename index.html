@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>zhopudey</title>
+  <meta name="description" content="zhopudey — self-hosted tinkering. In dubio, fiat somnus." />
+  <link rel="icon" href="./icon.png" />
+  <meta property="og:title" content="zhopudey" />
+  <meta property="og:description" content="संशये सति निद्रां गच्छ · in dubio, fiat somnus" />
+  <meta property="og:image" content="./banner.png" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@500;700&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1a1108;
+      --ink-soft: #4a3826;
+      --gold: #b88838;
+      --gold-deep: #7a5320;
+      --teal: #1e4a52;
+      --parchment: #f3e7cf;
+      --parchment-deep: #e7d4ad;
+      --rule: rgba(122, 83, 32, 0.35);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background:
+        radial-gradient(1200px 600px at 50% -200px, #f7ebd2 0%, transparent 70%),
+        radial-gradient(800px 400px at 50% 110%, #e7d4ad 0%, transparent 70%),
+        var(--parchment);
+      color: var(--ink);
+      font-family: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+      font-size: 19px;
+      line-height: 1.55;
+      min-height: 100vh;
+      padding: 0 1rem 4rem;
+    }
+    .wrap { max-width: 880px; margin: 0 auto; }
+
+    header.banner {
+      margin: 2rem 0 0;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow:
+        0 1px 0 rgba(255,255,255,0.6) inset,
+        0 0 0 1px var(--rule),
+        0 30px 60px -30px rgba(26, 17, 8, 0.35);
+    }
+    header.banner img { display: block; width: 100%; height: auto; }
+
+    .crest {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 2rem;
+      align-items: center;
+      margin: 2.5rem 0 1rem;
+    }
+    .crest img {
+      width: 160px; height: 160px; border-radius: 50%;
+      box-shadow:
+        0 0 0 1px var(--gold-deep),
+        0 0 0 6px var(--parchment),
+        0 0 0 7px var(--rule),
+        0 20px 40px -20px rgba(26, 17, 8, 0.4);
+    }
+    h1 {
+      font-family: "Cinzel", serif;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      margin: 0 0 0.4rem;
+      color: var(--ink);
+    }
+    .motto {
+      font-family: "Tiro Devanagari Sanskrit", serif;
+      font-size: 1.4rem;
+      color: var(--teal);
+      margin: 0 0 0.2rem;
+    }
+    .motto-latin {
+      font-style: italic;
+      color: var(--ink-soft);
+      letter-spacing: 0.04em;
+      margin: 0;
+    }
+    .gloss {
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+      margin: 0.4rem 0 0;
+    }
+
+    hr.rule {
+      border: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--rule) 20%, var(--rule) 80%, transparent);
+      margin: 2.5rem 0;
+    }
+
+    section.about p {
+      font-size: 1.15rem;
+      max-width: 56ch;
+    }
+    .drop::first-letter {
+      font-family: "Cinzel", serif;
+      float: left;
+      font-size: 3.4em;
+      line-height: 0.85;
+      padding: 0.1em 0.12em 0 0;
+      color: var(--gold-deep);
+    }
+
+    h2 {
+      font-family: "Cinzel", serif;
+      letter-spacing: 0.18em;
+      font-size: 1.05rem;
+      color: var(--gold-deep);
+      text-transform: uppercase;
+      margin: 0 0 1rem;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: 1.1rem 1.2rem;
+      background: linear-gradient(180deg, rgba(255,255,255,0.45), rgba(255,255,255,0));
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: var(--gold-deep);
+      box-shadow: 0 12px 24px -16px rgba(26, 17, 8, 0.4);
+    }
+    .card h3 {
+      font-family: "Cinzel", serif;
+      letter-spacing: 0.1em;
+      margin: 0 0 0.3rem;
+      font-size: 1.1rem;
+    }
+    .card .deva { font-family: "Tiro Devanagari Sanskrit", serif; color: var(--teal); font-size: 0.95rem; }
+    .card p { margin: 0.4rem 0 0; color: var(--ink-soft); font-size: 1rem; }
+    .badge {
+      display: inline-block;
+      font-family: "Cinzel", serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      padding: 0.15rem 0.5rem;
+      border: 1px solid var(--rule);
+      border-radius: 99px;
+      color: var(--gold-deep);
+      margin-left: 0.4rem;
+      vertical-align: middle;
+    }
+
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+    footer a { color: var(--gold-deep); text-decoration: none; border-bottom: 1px solid var(--rule); }
+    footer a:hover { color: var(--ink); border-color: var(--gold-deep); }
+
+    @media (max-width: 600px) {
+      .crest { grid-template-columns: 1fr; text-align: center; }
+      .crest img { margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="banner">
+      <img src="./banner.png" alt="Zhopudey banner — संशये सति निद्रां गच्छ · in dubio, fiat somnus" />
+    </header>
+
+    <section class="crest">
+      <img src="./icon.png" alt="Zhopudey crest" />
+      <div>
+        <h1>ZHOPUDEY</h1>
+        <p class="motto">संशये सति निद्रां गच्छ</p>
+        <p class="motto-latin">in dubio, fiat somnus</p>
+        <p class="gloss">when in doubt, sleep on it</p>
+      </div>
+    </section>
+
+    <hr class="rule" />
+
+    <section class="about">
+      <p class="drop">
+        Small, self-hosted things — built mostly for one household, in Indian rupees,
+        with Sanskrit nameplates. Everything runs from a closet on Unraid, fronted
+        by a Cloudflare tunnel, and is happy to stay there.
+      </p>
+    </section>
+
+    <hr class="rule" />
+
+    <section>
+      <h2>Workshop</h2>
+      <div class="projects">
+        <div class="card">
+          <h3>Munshiji <span class="deva">मुंशीजी</span></h3>
+          <p>Self-hosted expense splitter — Splitwise, but mine. INR-native, debt-simplifying.</p>
+        </div>
+        <div class="card">
+          <h3>Grantha <span class="deva">ग्रंथ</span><span class="badge">private</span></h3>
+          <p>Personal ebook management. Calibre, but quieter.</p>
+        </div>
+        <div class="card">
+          <h3>Taranga <span class="deva">तरंग</span></h3>
+          <p>A wave in progress.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        <a href="https://github.com/zhopudey">github.com/zhopudey</a>
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
