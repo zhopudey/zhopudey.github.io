@@ -138,10 +138,23 @@
       border-color: var(--gold-deep);
       box-shadow: 0 12px 24px -16px rgba(26, 17, 8, 0.4);
     }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 0 0 0.4rem;
+    }
+    .card-header img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 1px 3px rgba(26, 17, 8, 0.2);
+    }
     .card h3 {
       font-family: "Cinzel", serif;
       letter-spacing: 0.1em;
-      margin: 0 0 0.3rem;
+      margin: 0;
       font-size: 1.1rem;
     }
     .card .deva { font-family: "Tiro Devanagari Sanskrit", serif; color: var(--teal); font-size: 0.95rem; }
@@ -194,9 +207,7 @@
 
     <section class="about">
       <p class="drop">
-        Small, self-hosted things — built mostly for one household, in Indian rupees,
-        with Sanskrit nameplates. Everything runs from a closet on Unraid, fronted
-        by a Cloudflare tunnel, and is happy to stay there.
+        Self-hosted services running from a closet in Thaneshire, powered by Unraid. What is their purpose? Death would say, "THERE IS SOMETHING DEEPLY HUMAN ABOUT BUILDING ELABORATE SYSTEMS TO AVOID THE SIMPLE ACT OF DECIDING WHAT YOU WANT." But we are not doing this to please Death. We are simply doing this to achieve <em>Nirmal Anand</em>. You could ask us for more details, but we might be pursuing our house motto — When in doubt, go to sleep.
       </p>
     </section>
 
@@ -206,16 +217,25 @@
       <h2>Workshop</h2>
       <div class="projects">
         <div class="card">
-          <h3>Munshiji <span class="deva">मुंशीजी</span></h3>
-          <p>Self-hosted expense splitter — Splitwise, but mine. INR-native, debt-simplifying.</p>
+          <div class="card-header">
+            <img src="./munshiji_icon.png" alt="Munshiji icon" />
+            <h3>Munshiji <span class="deva">मुंशीजी</span></h3>
+          </div>
+          <p>Self-hosted group expense splitter — Splitwise, but mine. INR-native, debt-simplifying, and designed to keep the accounts as clear as the mind.</p>
         </div>
         <div class="card">
-          <h3>Grantha <span class="deva">ग्रंथ</span><span class="badge">private</span></h3>
-          <p>Personal ebook management. Calibre, but quieter.</p>
+          <div class="card-header">
+            <img src="./grantha_icon.png" alt="Grantha icon" />
+            <h3>Grantha <span class="deva">ग्रंथ</span><span class="badge">private</span></h3>
+          </div>
+          <p>A sophisticated sanctuary for the digital library. It transforms chaotic folders into a curated, enriched collection, focusing on the human-in-the-loop.</p>
         </div>
         <div class="card">
-          <h3>Taranga <span class="deva">तरंग</span></h3>
-          <p>A wave in progress.</p>
+          <div class="card-header">
+            <img src="./taranga_icon.png" alt="Taranga icon" />
+            <h3>Taranga <span class="deva">तरंग</span></h3>
+          </div>
+          <p>DIY WiFi Site Survey for Android. A wave in progress that maps the invisible, building real-time signal heatmaps to visualize the RF environment.</p>
         </div>
       </div>
     </section>
